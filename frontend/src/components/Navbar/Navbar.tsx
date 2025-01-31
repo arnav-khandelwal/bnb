@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
-export const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+export const Navbar: React.FC = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 

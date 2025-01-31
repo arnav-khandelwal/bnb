@@ -1,7 +1,13 @@
 import React from 'react';
 import { Wifi, Coffee, Utensils, Car, Wine, Trees as Tree } from 'lucide-react';
 
-const amenities = [
+type Amenity = {
+  icon: React.ComponentType<{ className?: string }>;
+  name: string;
+  description: string;
+};
+
+const amenities: Amenity[] = [
   { icon: Wifi, name: 'Free Wi-Fi', description: 'High-speed internet throughout the property' },
   { icon: Coffee, name: 'Gourmet Breakfast', description: 'Fresh, locally-sourced breakfast daily' },
   { icon: Utensils, name: 'Tea Service', description: 'Afternoon tea and homemade treats' },
@@ -10,7 +16,7 @@ const amenities = [
   { icon: Tree, name: 'Gardens', description: 'Beautiful gardens and sitting areas' },
 ];
 
-export const Amenities = () => {
+export const Amenities: React.FC = () => {
   return (
     <div className="py-20 bg-white">
       <div className="container mx-auto px-4">

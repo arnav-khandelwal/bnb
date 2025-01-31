@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const rooms = [
+interface Room {
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+}
+
+const rooms: Room[] = [
   {
     name: 'The Rose Suite',
     description: 'Our most luxurious suite featuring a king-size bed, private balcony overlooking the gardens, and a spacious en-suite bathroom with a clawfoot tub.',
@@ -22,8 +29,8 @@ const rooms = [
   },
 ];
 
-export const Rooms = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+export const Rooms: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => 

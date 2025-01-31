@@ -1,7 +1,7 @@
 import React from 'react';
 import { Bed } from 'lucide-react';
 
-export const Hero = () => {
+export const Hero: React.FC = () => {
   return (
     <div className="relative h-screen">
       <div 

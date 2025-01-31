@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-export const About = () => {
+export const About: React.FC = () => {
   return (
     <div className="py-20 bg-white">
       <div className="container mx-auto px-4">
