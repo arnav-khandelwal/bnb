@@ -4,28 +4,28 @@ import styles from './Rooms.module.scss';
 
 const rooms = [
 	{
-		name: 'The Rose Suite',
+		name: 'Garden View Room',
 		description:
-			'Our most luxurious suite featuring a king-size bed, private balcony overlooking the gardens, and a spacious en-suite bathroom with a clawfoot tub.',
-		price: 245,
+			'Wake up to the sights and sounds of Kerala’s lush gardens. This cozy room features local decor, a queen bed, and a private balcony overlooking the greenery.',
+		price: 180,
 		image:
-			'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&q=80',
+			'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80',
 	},
 	{
-		name: 'The Lavender Room',
+		name: 'Homestead Suite',
 		description:
-			'A charming room with a queen-size bed, garden views, and vintage furnishings. Perfect for a romantic getaway.',
-		price: 195,
+			'Spacious suite with traditional Kerala furnishings, a king bed, and a sitting area. Enjoy direct access to our tropical garden and a peaceful reading nook.',
+		price: 220,
 		image:
-			'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80',
+			'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&q=80',
 	},
 	{
-		name: 'The Magnolia Suite',
+		name: 'Treehouse Retreat',
 		description:
-			'Spacious suite with a four-poster queen bed, sitting area, and French doors leading to a private garden patio.',
-		price: 225,
+			'Experience Kerala’s nature from above in our unique treehouse room. Perfect for couples, with panoramic views of the surrounding greenery and birdsong.',
+		price: 250,
 		image:
-			'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&q=80',
+			'https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&q=80',
 	},
 ];
 

@@ -1,26 +1,30 @@
+@use '../../styles/variables' as *;
+
 // SCSS styles for Contact component
 
 .contactSection {
-  padding: 5rem 0;
-  background: #f7f7fa;
+  padding: $spacing-xl 0;
+  background: $primary-beige;
 }
 
 .container {
-//   max-width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
 }
 
 .maxWidth {
-//   max-width: 800px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
 .title {
   font-size: 2.5rem;
+  font-family: $font-heading;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: $spacing-lg;
+  color: $accent-brown;
 }
 
 .infoGrid {
@@ -39,6 +43,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  background: $light-beige;
 }
 
 .icon {
@@ -55,7 +60,7 @@
 }
 
 .infoText {
-  color: #555;
+  color: $text-light;
 }
 
 .form {
@@ -103,16 +108,18 @@
 
 .button {
   width: 100%;
-  background: #222;
-  color: #fff;
+  background: $medium-beige;
+  color: $accent-brown;
+  font-family: $font-primary;
   padding: 1rem 0;
   border-radius: 0.75rem;
   font-weight: 600;
   font-size: 1.1rem;
   border: none;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background $transition-smooth, color $transition-smooth;
   &:hover {
-    background: #444;
+    background: $dark-beige;
+    color: $accent-black;
   }
 }

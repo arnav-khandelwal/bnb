@@ -23,22 +23,22 @@ const Contact = () => {
     <div className={styles.contactSection}>
       <div className={styles.container}>
         <div className={styles.maxWidth}>
-          <h2 className={styles.title}>Contact Us</h2>
+          <h2 className={styles.title}>Contact The Perch</h2>
           <div className={styles.infoGrid}>
             <div className={styles.infoCard}>
               <MapPin className={styles.icon} />
               <h3 className={styles.infoTitle}>Address</h3>
-              <p className={styles.infoText}>123 Garden Road<br />Countryside, ST 12345</p>
+              <p className={styles.infoText}>The Perch<br />Green Lane, Wayanad, Kerala, 673123</p>
             </div>
             <div className={styles.infoCard}>
               <Phone className={styles.icon} />
               <h3 className={styles.infoTitle}>Phone</h3>
-              <p className={styles.infoText}>(555) 123-4567</p>
+              <p className={styles.infoText}>+91 98765 43210</p>
             </div>
             <div className={styles.infoCard}>
               <Mail className={styles.icon} />
               <h3 className={styles.infoTitle}>Email</h3>
-              <p className={styles.infoText}>stay@rosegardeninn.com</p>
+              <p className={styles.infoText}>hello@theperchkerala.com</p>
             </div>
           </div>
           <form className={styles.form} onSubmit={handleSubmit}>

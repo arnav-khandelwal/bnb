@@ -3,32 +3,29 @@ import styles from "./About.module.scss";
 
 const About = () => {
   return (
-    <div className={styles.aboutSection}>
+    <section className={styles.aboutSection}>
       <div className={styles.container}>
         <div className={styles.flexRow}>
           <div className={styles.imageWrapper}>
             <img
-              src="https://images.unsplash.com/photo-1519974719765-e6559eac2575?auto=format&fit=crop&q=80"
-              alt="Cozy breakfast setting"
+              src="/sides/1.jpeg"
+              alt="Kerala side view at The Perch"
               className={styles.image}
             />
           </div>
           <div className={styles.textWrapper}>
-            <h2 className={styles.title}>Our Story</h2>
-            <p className={styles.text}>
-              Nestled in the rolling hills of the countryside, Rose Garden Inn has been welcoming guests
-              for over 50 years. Our Victorian-era mansion has been lovingly restored to offer modern
-              comfort while maintaining its historic charm.
+            <h2 className={styles.title}>The Perch: Rest Easy, Live Naturally</h2>
+             <p className={styles.text}>
+                Amidst the lush greenery of Kerala’s Kollam district, is this peaceful homestay that offers complete solitude and privacy, perfect for those seeking a quiet escape to reconnect with nature. Situated far from the crowds, the homestay features a cottage with a kitchenette, allowing you to unwind completely and embrace the tranquility of the surroundings
             </p>
             <p className={styles.text}>
-              Each morning, wake up to the aroma of freshly baked pastries and locally roasted coffee.
-              Our award-winning breakfast is prepared with locally sourced ingredients, offering you
-              the perfect start to your day.
+The air is filled with the soothing sounds of chirping birds, the rustling of fruit trees, and the occasional flutter of butterflies, making it a paradise for nature lovers. Unwind in total privacy -sip your morning tea with only birds for company, lose yourself in a book, or simply soak in the beauty of the serene surroundings. No noise, no distractions -just you, nature, and complete tranquility.
+For those who want to experience the rustic charm of the place, evening walks and light conversations with the simple, friendly locals will enrich the experience.
             </p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

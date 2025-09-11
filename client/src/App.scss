@@ -1,3 +1,6 @@
+@use './styles/variables' as *;
+
 .min-h-screen {
   min-height: 100vh;
+  background: $primary-beige;
 }
