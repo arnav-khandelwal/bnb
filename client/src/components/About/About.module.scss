@@ -1,0 +1,50 @@
+// SCSS styles for About component
+
+.aboutSection {
+  padding: 5rem 0;
+  background: #fff;
+}
+
+.container {
+//   max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.imageWrapper {
+  flex: 1;
+}
+
+.image {
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  height: auto;
+}
+
+.textWrapper {
+  flex: 1;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.text {
+  color: #555;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}

@@ -1,0 +1,59 @@
+// SCSS styles for Amenities component
+
+.amenitiesSection {
+  padding: 5rem 0;
+  background: #fff;
+}
+
+.container {
+//   max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.amenityCard {
+  display: flex;
+  align-items: flex-start;
+  padding: 1.5rem;
+  background: #f9fafb;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+  color: #222;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.amenityName {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.amenityDesc {
+  color: #555;
+}
