@@ -1,46 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import styles from './Rooms.module.scss';
 
-const rooms = [
-	{
-		name: 'Garden View Room',
-		description:
-			'Wake up to the sights and sounds of Kerala’s lush gardens. This cozy room features local decor, a queen bed, and a private balcony overlooking the greenery.',
-		price: 180,
-		image:
-			'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80',
-	},
-	{
-		name: 'Homestead Suite',
-		description:
-			'Spacious suite with traditional Kerala furnishings, a king bed, and a sitting area. Enjoy direct access to our tropical garden and a peaceful reading nook.',
-		price: 220,
-		image:
-			'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&q=80',
-	},
-	{
-		name: 'Treehouse Retreat',
-		description:
-			'Experience Kerala’s nature from above in our unique treehouse room. Perfect for couples, with panoramic views of the surrounding greenery and birdsong.',
-		price: 250,
-		image:
-			'https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&q=80',
-	},
+const roomImages = [
+	{ name: 'Room', src: '/room/room.jpeg' },
+	{ name: 'Washroom', src: '/room/washroom.jpeg' },
+	{ name: 'Study', src: '/room/study.jpeg' },
+	{ name: 'Kitchen', src: '/room/kitchen.jpeg' },
 ];
+
+const room = {
+	name: 'A Room Inside Cottage',
+	description:
+		'A peaceful, private room inside the cottage with access to a washroom, study, and kitchen. Perfect for a tranquil stay surrounded by nature.',
+	price: 180,
+};
 
 const Rooms = () => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setCurrentIndex((prevIndex) =>
+				prevIndex === roomImages.length - 1 ? 0 : prevIndex + 1
+			);
+		}, 4000);
+		return () => clearInterval(interval);
+	}, []);
+
 	const nextSlide = () => {
 		setCurrentIndex((prevIndex) =>
-			prevIndex === rooms.length - 1 ? 0 : prevIndex + 1
+			prevIndex === roomImages.length - 1 ? 0 : prevIndex + 1
 		);
 	};
 
 	const prevSlide = () => {
 		setCurrentIndex((prevIndex) =>
-			prevIndex === 0 ? rooms.length - 1 : prevIndex - 1
+			prevIndex === 0 ? roomImages.length - 1 : prevIndex - 1
 		);
 	};
 
@@ -51,36 +47,32 @@ const Rooms = () => {
 	return (
 		<div id="rooms" className={styles.roomsSection}>
 			<div className={styles.container}>
-				<h2 className={styles.title}>Our Rooms</h2>
+				<h2 className={styles.title}>{room.name}</h2>
 				<div className={styles.carouselWrapper}>
 					<div className={styles.carousel}>
-						{rooms.map((room, index) => (
-							<div
-								key={index}
-								className={styles.slide}
-								style={{
-									left: `${index * 100}%`,
-									transform: `translateX(-${currentIndex * 100}%)`,
-								}}
-							>
-								<img
-									src={room.image}
-									alt={room.name}
-									className={styles.roomImage}
-								/>
-								<div className={styles.overlay}></div>
-								<div className={styles.slideContent}>
-									<h3 className={styles.roomName}>{room.name}</h3>
-									<p className={styles.roomDesc}>{room.description}</p>
-									<div className={styles.roomFooter}>
-										<span className={styles.roomPrice}>
-											${room.price} / night
-										</span>
-										<button className={styles.bookButton}>Book Now</button>
-									</div>
+						<div
+							className={styles.slide}
+							style={{ left: 0, transform: 'translateX(0)' }}
+						>
+							<img
+								src={roomImages[currentIndex].src}
+								alt={roomImages[currentIndex].name}
+								className={styles.roomImage}
+							/>
+							<div className={styles.overlay}></div>
+							<div className={styles.slideContent}>
+								<h3 className={styles.roomName}>
+									{roomImages[currentIndex].name}
+								</h3>
+								<p className={styles.roomDesc}>{room.description}</p>
+								<div className={styles.roomFooter}>
+									<span className={styles.roomPrice}>
+										${room.price} / night
+									</span>
+									<button className={styles.bookButton}>Book Now</button>
 								</div>
 							</div>
-						))}
+						</div>
 						<button onClick={prevSlide} className={styles.arrowLeft}>
 							<ChevronLeft size={24} />
 						</button>
@@ -89,9 +81,9 @@ const Rooms = () => {
 						</button>
 					</div>
 					<div className={styles.thumbnails}>
-						{rooms.map((room, index) => (
+						{roomImages.map((img, index) => (
 							<button
-								key={index}
+								key={img.name}
 								onClick={() => goToSlide(index)}
 								className={
 									index === currentIndex
@@ -100,8 +92,8 @@ const Rooms = () => {
 								}
 							>
 								<img
-									src={room.image}
-									alt={room.name}
+									src={img.src}
+									alt={img.name}
 									className={styles.thumbnailImage}
 								/>
 							</button>

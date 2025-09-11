@@ -66,8 +66,8 @@
   left: 0;
   right: 0;
   padding: 2rem;
-  color: $accent-brown;
-  background: linear-gradient(to top, rgba($primary-beige, 0.95), transparent);
+  color: $light-beige;
+//   background: linear-gradient(to top, rgba($primary-beige, 0.95), transparent);
   border-radius: 0 0 1rem 1rem;
   font-family: $font-primary;
 }
@@ -141,19 +141,22 @@
 
 .thumbnail,
 .thumbnailActive {
-  width: 5rem;
-  height: 5rem;
+  width: 4rem;
+  height: 4rem;
   border-radius: 0.75rem;
   overflow: hidden;
   opacity: 0.5;
   border: none;
   transition: opacity 0.2s, box-shadow 0.2s;
   cursor: pointer;
+  background-color: $medium-beige;
+  box-shadow: 0 0 0 2px $text-light;
 }
 
 .thumbnailActive {
   opacity: 1;
-  box-shadow: 0 0 0 2px #222;
+  box-shadow: 0 0 0 2px $accent-brown;
+  background-color: $dark-beige;
 }
 
 .thumbnailImage {
