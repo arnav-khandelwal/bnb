@@ -4,7 +4,6 @@
 
 .aboutSection {
   padding: $spacing-xl 0;
-  margin-top: 10rem;
   background: $primary-beige;
 }
 
@@ -19,6 +18,7 @@
   gap: 0;
   align-items: center;
   justify-content: center;
+  margin-top: 10rem;
 
   @media (max-width: $mobile) {
     flex-direction: column;
@@ -76,3 +76,24 @@
   line-height: 1.7;
   font-family: $font-primary;
 }
+
+
+.imageLeft {
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 1rem;
+  box-shadow: 0px 16px 32px 0 rgba(60, 47, 28, 0.8), 0 1.5px 6px 0 rgba(124, 111, 87, 0.8);
+  margin-right: 5rem;;
+  margin-left: 5rem;
+}
+
+.textWrapperLeft {
+  flex: 1;
+    margin-left: 5rem;
+  @media (max-width: $mobile) {
+    margin-left: 0;
+  }
+}
+
+
