@@ -13,7 +13,6 @@ const room = {
 	name: 'A Room Inside Cottage',
 	description:
 		'A peaceful, private room inside the cottage with access to a washroom, study, and kitchen. Perfect for a tranquil stay surrounded by nature.',
-	price: 180,
 };
 
 const Rooms = () => {
@@ -66,10 +65,6 @@ const Rooms = () => {
 								</h3>
 								<p className={styles.roomDesc}>{room.description}</p>
 								<div className={styles.roomFooter}>
-									<span className={styles.roomPrice}>
-										${room.price} / night
-									</span>
-									<button className={styles.bookButton}>Book Now</button>
 								</div>
 							</div>
 						</div>

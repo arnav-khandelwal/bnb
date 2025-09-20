@@ -61,3 +61,146 @@
 .amenityDesc {
   color: $text-light;
 }
+
+// Styles for the list sections
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 $spacing-xl 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+
+  li {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba($accent-brown, 0.1);
+    color: $accent-brown;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+
+    strong {
+      color: $accent-brown;
+      font-weight: 600;
+    }
+  }
+}
+
+// Carousel styles for Things to Do section
+.carouselWrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.carousel {
+  position: relative;
+  height: 500px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: $light-beige;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  transition: transform 0.5s ease-out;
+}
+
+.activityImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+}
+
+.slideContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  color: $light-beige;
+  border-radius: 0 0 1rem 1rem;
+  font-family: $font-primary;
+}
+
+.activityName {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: $light-beige;
+}
+
+.activityDesc {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: $light-beige;
+}
+
+.arrowLeft,
+.arrowRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  z-index: 2;
+}
+
+.arrowLeft {
+  left: 1rem;
+}
+
+.arrowRight {
+  right: 1rem;
+}
+
+.thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.thumbnail,
+.thumbnailActive {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  opacity: 0.5;
+  border: none;
+  transition: opacity 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  background-color: $medium-beige;
+  box-shadow: 0 0 0 2px $text-light;
+}
+
+.thumbnailActive {
+  opacity: 1;
+  box-shadow: 0 0 0 2px $accent-brown;
+  background-color: $dark-beige;
+}
+
+.thumbnailImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

@@ -49,7 +49,7 @@
 .icon {
   width: 2rem;
   height: 2rem;
-  color: #222;
+  color: $accent-brown;
   margin-bottom: 1rem;
 }
 
@@ -57,10 +57,11 @@
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
+  color: $accent-brown;
 }
 
 .infoText {
-  color: $text-light;
+  color: $accent-brown;
 }
 
 .form {
@@ -83,12 +84,21 @@
   width: 100%;
   padding: 0.75rem 1rem;
   border-radius: 0.75rem;
-  border: 1px solid #ddd;
+  border: 1px solid $medium-beige;
+  background: $white;
+  color: $accent-brown;
   font-size: 1rem;
+  font-family: $font-primary;
   outline: none;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  
+  &::placeholder {
+    color: $text-light;
+  }
+  
   &:focus {
-    border-color: #222;
+    border-color: $accent-brown;
+    box-shadow: 0 0 0 2px rgba($accent-brown, 0.1);
   }
 }
 
@@ -96,13 +106,22 @@
   width: 100%;
   padding: 0.75rem 1rem;
   border-radius: 0.75rem;
-  border: 1px solid #ddd;
+  border: 1px solid $medium-beige;
+  background: $white;
+  color: $accent-brown;
   font-size: 1rem;
+  font-family: $font-primary;
   outline: none;
   resize: vertical;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  
+  &::placeholder {
+    color: $text-light;
+  }
+  
   &:focus {
-    border-color: #222;
+    border-color: $accent-brown;
+    box-shadow: 0 0 0 2px rgba($accent-brown, 0.1);
   }
 }
 

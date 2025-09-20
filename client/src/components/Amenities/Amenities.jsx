@@ -1,5 +1,5 @@
-import React from 'react';
-import { Wifi, Coffee, Utensils, Car, Wine, Trees as Tree } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Wifi, Coffee, Utensils, Car, Wine, Trees as Tree, ChevronLeft, ChevronRight } from 'lucide-react';
 import styles from './Amenities.module.scss';
 
 const amenities = [
@@ -25,13 +25,39 @@ const layout = [
 ];
 
 const activities = [
-  { name: 'Reading & Writing', description: 'Find inspiration in nature' },
-  { name: 'Nature Walks', description: 'Explore the lush surroundings' },
-  { name: 'Soap Making Workshop', description: 'Available on request (extra charges apply)' },
-  { name: 'Cooking & Gardening', description: 'Join us for authentic Kerala cooking and gardening experiences' },
+  { name: 'Reading & Writing', description: 'Find inspiration in nature', src: '/main/1.jpeg' },
+  { name: 'Nature Walks', description: 'Explore the lush surroundings', src: '/main/2.jpeg' },
+  { name: 'Soap Making Workshop', description: 'Available on request (extra charges apply)', src: '/main/3.jpeg' },
+  { name: 'Cooking & Gardening', description: 'Join us for authentic Kerala cooking and gardening experiences', src: '/main/4.jpeg' },
 ];
 
 const Amenities = () => {
+  const [currentActivityIndex, setCurrentActivityIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentActivityIndex((prevIndex) =>
+        prevIndex === activities.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const nextActivitySlide = () => {
+    setCurrentActivityIndex((prevIndex) =>
+      prevIndex === activities.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const prevActivitySlide = () => {
+    setCurrentActivityIndex((prevIndex) =>
+      prevIndex === 0 ? activities.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToActivitySlide = (index) => {
+    setCurrentActivityIndex(index);
+  };
   return (
     <div className={styles.amenitiesSection}>
       <div className={styles.container}>
@@ -64,13 +90,52 @@ const Amenities = () => {
           ))}
         </ul>
         <h2 className={styles.title}>Things to Do & Ways to Relax</h2>
-        <ul>
-          {activities.map((item) => (
-            <li key={item.name}>
-              <strong>{item.name}:</strong> {item.description}
-            </li>
-          ))}
-        </ul>
+        <div className={styles.carouselWrapper}>
+          <div className={styles.carousel}>
+            <div
+              className={styles.slide}
+              style={{ left: 0, transform: 'translateX(0)' }}
+            >
+              <img
+                src={activities[currentActivityIndex].src}
+                alt={activities[currentActivityIndex].name}
+                className={styles.activityImage}
+              />
+              <div className={styles.overlay}></div>
+              <div className={styles.slideContent}>
+                <h3 className={styles.activityName}>
+                  {activities[currentActivityIndex].name}
+                </h3>
+                <p className={styles.activityDesc}>{activities[currentActivityIndex].description}</p>
+              </div>
+            </div>
+            <button onClick={prevActivitySlide} className={styles.arrowLeft}>
+              <ChevronLeft size={24} />
+            </button>
+            <button onClick={nextActivitySlide} className={styles.arrowRight}>
+              <ChevronRight size={24} />
+            </button>
+          </div>
+          <div className={styles.thumbnails}>
+            {activities.map((activity, index) => (
+              <button
+                key={activity.name}
+                onClick={() => goToActivitySlide(index)}
+                className={
+                  index === currentActivityIndex
+                    ? styles.thumbnailActive
+                    : styles.thumbnail
+                }
+              >
+                <img
+                  src={activity.src}
+                  alt={activity.name}
+                  className={styles.thumbnailImage}
+                />
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
