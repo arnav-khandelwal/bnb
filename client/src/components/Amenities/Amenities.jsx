@@ -55,10 +55,10 @@ const layout = [
 ];
 
 const activities = [
-  { name: 'Reading & Writing', description: 'Find inspiration in peaceful surroundings', src: '/main/1.jpeg' },
-  { name: 'Nature Walks', description: 'Explore the lush Kerala countryside', src: '/main/2.jpeg' },
-  { name: 'Soap Making Workshop', description: 'Learn traditional crafts (extra charges apply)', src: '/main/3.jpeg' },
-  { name: 'Cooking & Gardening', description: 'Experience authentic Kerala lifestyle', src: '/main/4.jpeg' },
+  { name: 'Reading & Writing', description: 'Find inspiration in peaceful surroundings', src: '/things/reading.jpeg' },
+  { name: 'Nature Walks', description: 'Explore the lush Kerala countryside', src: '/things/nature.jpeg' },
+  { name: 'Soap Making Workshop', description: 'Learn traditional crafts (extra charges apply)', src: '/things/soap.jpeg' },
+  { name: 'Cooking & Gardening', description: 'Experience authentic Kerala lifestyle', src: '/things/cooking.jpeg' },
 ];
 
 const Amenities = () => {
