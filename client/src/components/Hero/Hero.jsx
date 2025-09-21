@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Bed, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import styles from './Hero.module.scss';
 
 const images = [
@@ -18,6 +19,12 @@ const Hero = () => {
   const [prevIndex, setPrevIndex] = useState(0);
   const [slideDirection, setSlideDirection] = useState('right');
   const timeoutRef = useRef(null);
+  
+  // Animation refs
+  const titleRef = useScrollAnimation('fadeUp', { delay: 0.2 });
+  const subtitleRef = useScrollAnimation('fadeUp', { delay: 0.4 });
+  const buttonRef = useScrollAnimation('fadeUp', { delay: 0.6 });
+  const iconRef = useScrollAnimation('fadeIn', { delay: 0.1 });
 
   useEffect(() => {
     timeoutRef.current = setTimeout(() => {
@@ -78,12 +85,12 @@ const Hero = () => {
         </button>
       </div>
       <div className={styles.contentWrapper}>
-        <Bed className={styles.icon} color='white'/>
-        <h1 className={styles.title}>The Perch</h1>
-        <p className={styles.subtitle}>
+        <Bed ref={iconRef} className={styles.icon} color='white'/>
+        <h1 ref={titleRef} className={styles.title}>The Perch</h1>
+        <p ref={subtitleRef} className={styles.subtitle}>
          A serene Kerala Homestay at Kollam; A Sanctuary of Solitude- Ideal for weekend getaways, long stays and women seeking a restful break.
         </p>
-        <button className={styles.button}>
+        <button ref={buttonRef} className={styles.button}>
           Book Your Stay
         </button>
       </div>

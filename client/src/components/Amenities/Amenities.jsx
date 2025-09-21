@@ -19,6 +19,7 @@ import {
   ChevronLeft, 
   ChevronRight 
 } from 'lucide-react';
+import { useScrollAnimation, useStaggerAnimation } from '../../hooks/useScrollAnimation';
 import styles from './Amenities.module.scss';
 
 const topAmenities = [
@@ -63,6 +64,18 @@ const activities = [
 
 const Amenities = () => {
   const [currentActivityIndex, setCurrentActivityIndex] = useState(0);
+  
+  // Animation refs
+  const titleRef = useScrollAnimation('fadeUp');
+  const topAmenitiesRef = useStaggerAnimation('scale', { stagger: 0.2, delay: 0.3 });
+  const kitchenRef = useScrollAnimation('fadeUp');
+  const kitchenGridRef = useStaggerAnimation('fadeUp', { stagger: 0.1 });
+  const comfortsRef = useScrollAnimation('fadeUp');
+  const comfortsGridRef = useStaggerAnimation('fadeUp', { stagger: 0.1 });
+  const layoutRef = useScrollAnimation('fadeUp');
+  const layoutGridRef = useStaggerAnimation('fadeUp', { stagger: 0.1 });
+  const activitiesRef = useScrollAnimation('fadeUp');
+  const carouselRef = useScrollAnimation('fadeIn', { delay: 0.3 });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -94,8 +107,8 @@ const Amenities = () => {
       <div className={styles.container}>
         {/* Top Amenities */}
         <div className={styles.section}>
-          <h2 className={styles.mainTitle}>Amenities & Facilities</h2>
-          <div className={styles.topAmenities}>
+          <h2 ref={titleRef} className={styles.mainTitle}>Amenities & Facilities</h2>
+          <div ref={topAmenitiesRef} className={styles.topAmenities}>
             {topAmenities.map((amenity) => (
               <div key={amenity.name} className={styles.topAmenityCard}>
                 <amenity.icon className={styles.topIcon} />
@@ -108,8 +121,8 @@ const Amenities = () => {
 
         {/* Kitchen */}
         <div className={styles.section}>
-          <h3 className={styles.sectionTitle}>Kitchen</h3>
-          <div className={styles.grid}>
+          <h3 ref={kitchenRef} className={styles.sectionTitle}>Kitchen</h3>
+          <div ref={kitchenGridRef} className={styles.grid}>
             {kitchenAmenities.map((amenity) => (
               <div key={amenity.name} className={styles.amenityCard}>
                 <amenity.icon className={styles.icon} />
@@ -124,8 +137,8 @@ const Amenities = () => {
 
         {/* Comforts */}
         <div className={styles.section}>
-          <h3 className={styles.sectionTitle}>Comforts</h3>
-          <div className={styles.grid}>
+          <h3 ref={comfortsRef} className={styles.sectionTitle}>Comforts</h3>
+          <div ref={comfortsGridRef} className={styles.grid}>
             {comforts.map((comfort) => (
               <div key={comfort.name} className={styles.amenityCard}>
                 <comfort.icon className={styles.icon} />
@@ -140,8 +153,8 @@ const Amenities = () => {
 
         {/* Layout & Furnishing */}
         <div className={styles.section}>
-          <h3 className={styles.sectionTitle}>Layout & Furnishing</h3>
-          <div className={styles.grid}>
+          <h3 ref={layoutRef} className={styles.sectionTitle}>Layout & Furnishing</h3>
+          <div ref={layoutGridRef} className={styles.grid}>
             {layout.map((item) => (
               <div key={item.name} className={styles.amenityCard}>
                 <item.icon className={styles.icon} />
@@ -156,9 +169,9 @@ const Amenities = () => {
 
         {/* Activities */}
         <div className={styles.section}>
-          <h3 className={styles.mainTitle}>Things to Do & Ways to Relax</h3>
+          <h3 ref={activitiesRef} className={styles.mainTitle}>Things to Do & Ways to Relax</h3>
           <div className={styles.carouselWrapper}>
-            <div className={styles.carousel}>
+            <div ref={carouselRef} className={styles.carousel}>
               <div className={styles.slide}>
                 <img
                   src={activities[currentActivityIndex].src}

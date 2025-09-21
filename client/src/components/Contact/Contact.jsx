@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail } from 'lucide-react';
+import { useScrollAnimation, useStaggerAnimation } from '../../hooks/useScrollAnimation';
 import styles from './Contact.module.scss';
 
 const Contact = () => {
@@ -8,6 +9,11 @@ const Contact = () => {
     email: '',
     message: '',
   });
+  
+  // Animation refs
+  const titleRef = useScrollAnimation('fadeUp');
+  const infoGridRef = useStaggerAnimation('scale', { stagger: 0.2, delay: 0.3 });
+  const formRef = useScrollAnimation('fadeUp', { delay: 0.5 });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,8 +29,8 @@ const Contact = () => {
     <div className={styles.contactSection}>
       <div className={styles.container}>
         <div className={styles.maxWidth}>
-          <h2 className={styles.title}>Contact The Perch</h2>
-          <div className={styles.infoGrid}>
+          <h2 ref={titleRef} className={styles.title}>Contact The Perch</h2>
+          <div ref={infoGridRef} className={styles.infoGrid}>
             <div className={styles.infoCard}>
               <MapPin className={styles.icon} />
               <h3 className={styles.infoTitle}>Address</h3>
@@ -41,7 +47,7 @@ const Contact = () => {
               <p className={styles.infoText}>hello@theperchkerala.com</p>
             </div>
           </div>
-          <form className={styles.form} onSubmit={handleSubmit}>
+          <form ref={formRef} className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.inputGrid}>
               <input
                 type="text"

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useScrollAnimation, useStaggerAnimation } from '../../hooks/useScrollAnimation';
 import styles from './Rooms.module.scss';
 
 const roomImages = [
@@ -17,6 +18,11 @@ const room = {
 
 const Rooms = () => {
 	const [currentIndex, setCurrentIndex] = useState(0);
+	
+	// Animation refs
+	const titleRef = useScrollAnimation('fadeUp');
+	const carouselRef = useScrollAnimation('fadeIn', { delay: 0.3 });
+	const thumbnailsRef = useStaggerAnimation('fadeUp', { delay: 0.5, stagger: 0.1 });
 
 	useEffect(() => {
 		const interval = setInterval(() => {
@@ -46,9 +52,9 @@ const Rooms = () => {
 	return (
 		<div id="rooms" className={styles.roomsSection}>
 			<div className={styles.container}>
-				<h2 className={styles.title}>{room.name}</h2>
+				<h2 ref={titleRef} className={styles.title}>{room.name}</h2>
 				<div className={styles.carouselWrapper}>
-					<div className={styles.carousel}>
+					<div ref={carouselRef} className={styles.carousel}>
 						<div
 							className={styles.slide}
 							style={{ left: 0, transform: 'translateX(0)' }}
@@ -75,7 +81,7 @@ const Rooms = () => {
 							<ChevronRight size={24} />
 						</button>
 					</div>
-					<div className={styles.thumbnails}>
+					<div ref={thumbnailsRef} className={styles.thumbnails}>
 						{roomImages.map((img, index) => (
 							<button
 								key={img.name}
