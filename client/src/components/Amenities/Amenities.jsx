@@ -1,34 +1,64 @@
 import React, { useState, useEffect } from 'react';
-import { Wifi, Coffee, Utensils, Car, Wine, Trees as Tree, ChevronLeft, ChevronRight } from 'lucide-react';
+import { 
+  Wifi, 
+  Coffee, 
+  Car, 
+  Droplets, 
+  Zap, 
+  ChefHat, 
+  Refrigerator, 
+  UtensilsCrossed,
+  Wind,
+  Shirt,
+  Home,
+  Plug,
+  Bed,
+  Armchair,
+  TreePine,
+  Eye,
+  ChevronLeft, 
+  ChevronRight 
+} from 'lucide-react';
 import styles from './Amenities.module.scss';
 
-const amenities = [
-  { icon: Wifi, name: 'Free WiFi', description: 'High-speed internet throughout The Perch' },
-  { icon: Coffee, name: 'Breakfast Included', description: 'Home-cooked Kerala breakfast served daily' },
-  { icon: Utensils, name: 'Kitchenette', description: 'Filtered water, electric kettle, induction stove, refrigerator, utensils, plates, and cutlery' },
-  { icon: Car, name: 'Free Parking', description: 'Safe, convenient on-site parking for guests' },
-  { icon: Wine, name: 'Nature Walks', description: 'Guided walks through our lush gardens and nearby greenery' },
-  { icon: Tree, name: 'Green Spaces', description: 'Relax in our tropical gardens, surrounded by native plants and birds' },
+const topAmenities = [
+  { icon: Coffee, name: 'Breakfast Included', description: 'Fresh home-cooked Kerala breakfast' },
+  { icon: Wifi, name: 'Free WiFi', description: 'High-speed internet throughout' },
+  { icon: Car, name: 'Free Parking', description: 'Safe, convenient on-site parking' },
+];
+
+const kitchenAmenities = [
+  { icon: Droplets, name: 'Filtered Water', description: 'Clean drinking water' },
+  { icon: Zap, name: 'Electric Kettle', description: 'For tea and coffee' },
+  { icon: ChefHat, name: 'Induction Stove', description: 'Modern cooking facility' },
+  { icon: Refrigerator, name: 'Refrigerator', description: 'Keep your food fresh' },
+  { icon: UtensilsCrossed, name: 'Cooking Utensils', description: 'Milk pan, tawa, wok' },
+  { icon: UtensilsCrossed, name: 'Plates & Cutlery', description: 'Complete dining set' },
 ];
 
 const comforts = [
-  { name: 'Air Conditioner & Fan', description: 'Stay comfortable in any season' },
-  { name: 'Linens & Towels', description: 'Fresh linens and towels provided' },
-  { name: 'Cupboards & Study Table', description: 'Ample storage and workspace' },
-  { name: 'Sockets Near Bed', description: 'Convenient charging for your devices' },
+  { icon: Wind, name: 'Air Conditioner', description: 'Stay cool and comfortable' },
+  { icon: Wind, name: 'Fan', description: 'Additional air circulation' },
+  { icon: Shirt, name: 'Linens', description: 'Fresh bedding provided' },
+  { icon: Home, name: 'Cupboards', description: 'Storage for clothes' },
+  { icon: Plug, name: 'Bedside Sockets', description: 'Convenient charging' },
+  { icon: Home, name: 'Study Table', description: 'Workspace available' },
 ];
 
 const layout = [
-  { name: 'Double Bed', description: 'Cozy and comfortable for restful sleep' },
-  { name: 'Garden View & Access', description: 'Enjoy outdoor seating and beautiful views' },
-  { name: 'Private Bathroom', description: 'Shower, hot water, mirror, towels' },
+  { icon: Bed, name: 'Double Bed', description: 'Comfortable sleeping space' },
+  { icon: Home, name: 'Study Table', description: 'Dedicated work area' },
+  { icon: Armchair, name: 'Chairs', description: 'Seating arrangements' },
+  { icon: Home, name: 'Cupboards', description: 'Ample storage space' },
+  { icon: Eye, name: 'Garden View', description: 'Beautiful nature views' },
+  { icon: TreePine, name: 'Outdoor Seating', description: 'Relax in nature' },
 ];
 
 const activities = [
-  { name: 'Reading & Writing', description: 'Find inspiration in nature', src: '/main/1.jpeg' },
-  { name: 'Nature Walks', description: 'Explore the lush surroundings', src: '/main/2.jpeg' },
-  { name: 'Soap Making Workshop', description: 'Available on request (extra charges apply)', src: '/main/3.jpeg' },
-  { name: 'Cooking & Gardening', description: 'Join us for authentic Kerala cooking and gardening experiences', src: '/main/4.jpeg' },
+  { name: 'Reading & Writing', description: 'Find inspiration in peaceful surroundings', src: '/main/1.jpeg' },
+  { name: 'Nature Walks', description: 'Explore the lush Kerala countryside', src: '/main/2.jpeg' },
+  { name: 'Soap Making Workshop', description: 'Learn traditional crafts (extra charges apply)', src: '/main/3.jpeg' },
+  { name: 'Cooking & Gardening', description: 'Experience authentic Kerala lifestyle', src: '/main/4.jpeg' },
 ];
 
 const Amenities = () => {
@@ -58,82 +88,117 @@ const Amenities = () => {
   const goToActivitySlide = (index) => {
     setCurrentActivityIndex(index);
   };
+
   return (
     <div className={styles.amenitiesSection}>
       <div className={styles.container}>
-        <h2 className={styles.title}>Top Amenities</h2>
-        <div className={styles.grid}>
-          {amenities.map((amenity) => (
-            <div key={amenity.name} className={styles.amenityCard}>
-              {amenity.icon && <amenity.icon className={styles.icon} />}
-              <div>
-                <h3 className={styles.amenityName}>{amenity.name}</h3>
-                <p className={styles.amenityDesc}>{amenity.description}</p>
+        {/* Top Amenities */}
+        <div className={styles.section}>
+          <h2 className={styles.mainTitle}>Amenities & Facilities</h2>
+          <div className={styles.topAmenities}>
+            {topAmenities.map((amenity) => (
+              <div key={amenity.name} className={styles.topAmenityCard}>
+                <amenity.icon className={styles.topIcon} />
+                <h3 className={styles.topAmenityName}>{amenity.name}</h3>
+                <p className={styles.topAmenityDesc}>{amenity.description}</p>
               </div>
-            </div>
-          ))}
-        </div>
-        <h2 className={styles.title}>Comforts</h2>
-        <ul>
-          {comforts.map((item) => (
-            <li key={item.name}>
-              <strong>{item.name}:</strong> {item.description}
-            </li>
-          ))}
-        </ul>
-        <h2 className={styles.title}>Layout & Furnishing</h2>
-        <ul>
-          {layout.map((item) => (
-            <li key={item.name}>
-              <strong>{item.name}:</strong> {item.description}
-            </li>
-          ))}
-        </ul>
-        <h2 className={styles.title}>Things to Do & Ways to Relax</h2>
-        <div className={styles.carouselWrapper}>
-          <div className={styles.carousel}>
-            <div
-              className={styles.slide}
-              style={{ left: 0, transform: 'translateX(0)' }}
-            >
-              <img
-                src={activities[currentActivityIndex].src}
-                alt={activities[currentActivityIndex].name}
-                className={styles.activityImage}
-              />
-              <div className={styles.overlay}></div>
-              <div className={styles.slideContent}>
-                <h3 className={styles.activityName}>
-                  {activities[currentActivityIndex].name}
-                </h3>
-                <p className={styles.activityDesc}>{activities[currentActivityIndex].description}</p>
-              </div>
-            </div>
-            <button onClick={prevActivitySlide} className={styles.arrowLeft}>
-              <ChevronLeft size={24} />
-            </button>
-            <button onClick={nextActivitySlide} className={styles.arrowRight}>
-              <ChevronRight size={24} />
-            </button>
-          </div>
-          <div className={styles.thumbnails}>
-            {activities.map((activity, index) => (
-              <button
-                key={activity.name}
-                onClick={() => goToActivitySlide(index)}
-                className={
-                  index === currentActivityIndex
-                    ? styles.thumbnailActive
-                    : styles.thumbnail
-                }
-              >
-                <img
-                  src={activity.src}
-                  alt={activity.name}
-                  className={styles.thumbnailImage}
-                />
-              </button>
             ))}
+          </div>
+        </div>
+
+        {/* Kitchen */}
+        <div className={styles.section}>
+          <h3 className={styles.sectionTitle}>Kitchen</h3>
+          <div className={styles.grid}>
+            {kitchenAmenities.map((amenity) => (
+              <div key={amenity.name} className={styles.amenityCard}>
+                <amenity.icon className={styles.icon} />
+                <div className={styles.amenityContent}>
+                  <h4 className={styles.amenityName}>{amenity.name}</h4>
+                  <p className={styles.amenityDesc}>{amenity.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Comforts */}
+        <div className={styles.section}>
+          <h3 className={styles.sectionTitle}>Comforts</h3>
+          <div className={styles.grid}>
+            {comforts.map((comfort) => (
+              <div key={comfort.name} className={styles.amenityCard}>
+                <comfort.icon className={styles.icon} />
+                <div className={styles.amenityContent}>
+                  <h4 className={styles.amenityName}>{comfort.name}</h4>
+                  <p className={styles.amenityDesc}>{comfort.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Layout & Furnishing */}
+        <div className={styles.section}>
+          <h3 className={styles.sectionTitle}>Layout & Furnishing</h3>
+          <div className={styles.grid}>
+            {layout.map((item) => (
+              <div key={item.name} className={styles.amenityCard}>
+                <item.icon className={styles.icon} />
+                <div className={styles.amenityContent}>
+                  <h4 className={styles.amenityName}>{item.name}</h4>
+                  <p className={styles.amenityDesc}>{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Activities */}
+        <div className={styles.section}>
+          <h3 className={styles.sectionTitle}>Things to Do & Ways to Relax</h3>
+          <div className={styles.carouselWrapper}>
+            <div className={styles.carousel}>
+              <div className={styles.slide}>
+                <img
+                  src={activities[currentActivityIndex].src}
+                  alt={activities[currentActivityIndex].name}
+                  className={styles.activityImage}
+                />
+                <div className={styles.overlay}></div>
+                <div className={styles.slideContent}>
+                  <h3 className={styles.activityName}>
+                    {activities[currentActivityIndex].name}
+                  </h3>
+                  <p className={styles.activityDesc}>{activities[currentActivityIndex].description}</p>
+                </div>
+              </div>
+              <button onClick={prevActivitySlide} className={styles.arrowLeft}>
+                <ChevronLeft size={24} />
+              </button>
+              <button onClick={nextActivitySlide} className={styles.arrowRight}>
+                <ChevronRight size={24} />
+              </button>
+            </div>
+            <div className={styles.thumbnails}>
+              {activities.map((activity, index) => (
+                <button
+                  key={activity.name}
+                  onClick={() => goToActivitySlide(index)}
+                  className={
+                    index === currentActivityIndex
+                      ? styles.thumbnailActive
+                      : styles.thumbnail
+                  }
+                >
+                  <img
+                    src={activity.src}
+                    alt={activity.name}
+                    className={styles.thumbnailImage}
+                  />
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>

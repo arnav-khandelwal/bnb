@@ -3,10 +3,10 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import styles from './Rooms.module.scss';
 
 const roomImages = [
-	{ name: 'Room', src: '/room/room.jpeg' },
-	{ name: 'Washroom', src: '/room/washroom.jpeg' },
-	{ name: 'Study', src: '/room/study.jpeg' },
-	{ name: 'Kitchen', src: '/room/kitchen.jpeg' },
+	{ name: 'The Bedroom – your restful haven', src: '/room/room.jpeg', desc: "A bright and welcoming space filled with natural light, the bedroom is designed for comfort and calm. Perfect for a restful night’s sleep or a slow morning, this cozy haven blends simplicity with the soothing charm of nature." },
+	{ name: 'The Bathroom', src: '/room/washroom.jpeg', desc: "Clean and bright, the bathroom comes with a shower, offering the simple comforts you need for a refreshing stay." },
+	{ name: 'The Study  - your cozy corner', src: '/room/study.jpeg', desc: "A quiet, comfortable space inside the cottage, perfect for reading & writing. Designed for peace and reflection, this  private study offers a writing desk by the window surrounded by greenery and natural light, making it feel like a little hideaway of its own." },
+	{ name: 'The Kitchenette – your little comfort corner', src: '/room/kitchen.jpeg', desc: "Enjoy your morning coffee by the window and feel at home. A snug spot that adds warmth and ease to your stay, complete with an induction stove and a kettle for your convenience." },
 ];
 
 const room = {
@@ -63,7 +63,7 @@ const Rooms = () => {
 								<h3 className={styles.roomName}>
 									{roomImages[currentIndex].name}
 								</h3>
-								<p className={styles.roomDesc}>{room.description}</p>
+								<p className={styles.roomDesc}>{roomImages[currentIndex].desc}</p>
 								<div className={styles.roomFooter}>
 								</div>
 							</div>
