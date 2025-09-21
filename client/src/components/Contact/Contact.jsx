@@ -28,7 +28,7 @@ const Contact = () => {
             <div className={styles.infoCard}>
               <MapPin className={styles.icon} />
               <h3 className={styles.infoTitle}>Address</h3>
-              <p className={styles.infoText}>The Perch<br />Green Lane, Wayanad, Kerala, 673123</p>
+              <p className={styles.infoText}>The Perch<br />Kollam, Kerala, India</p>
             </div>
             <div className={styles.infoCard}>
               <Phone className={styles.icon} />
