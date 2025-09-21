@@ -35,11 +35,18 @@ const About = () => {
             </p>
           </div>
           <div className={styles.imageWrapper}>
-            <img
-              src="/sides/2.jpeg"
-              alt="Kerala side view at The Perch"
-              className={styles.imageLeft}
-            />
+            <div className={styles.layeredImages}>
+              <img
+                src="/sides/2.jpeg"
+                alt="Kerala side view at The Perch"
+                className={styles.imageBackground}
+              />
+              <img
+                src="/main/1.jpeg"
+                alt="The Perch main view"
+                className={styles.imageForeground}
+              />
+            </div>
           </div>
         </div>
       </div>

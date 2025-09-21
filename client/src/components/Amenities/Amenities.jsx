@@ -156,7 +156,7 @@ const Amenities = () => {
 
         {/* Activities */}
         <div className={styles.section}>
-          <h3 className={styles.sectionTitle}>Things to Do & Ways to Relax</h3>
+          <h3 className={styles.mainTitle}>Things to Do & Ways to Relax</h3>
           <div className={styles.carouselWrapper}>
             <div className={styles.carousel}>
               <div className={styles.slide}>

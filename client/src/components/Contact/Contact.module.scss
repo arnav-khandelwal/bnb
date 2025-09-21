@@ -2,7 +2,7 @@
 
 .contactSection {
   padding: 3rem 0;
-  background: linear-gradient(135deg, #fafafa 0%, #f5f3f0 100%);
+  // background: linear-gradient(135deg, #fafafa 0%, #f5f3f0 100%);
 }
 
 .container {
@@ -21,27 +21,28 @@
 
 .title {
   font-family: $font-heading;
-  font-size: 2.5rem;
-  font-weight: 400;
-  color: #333;
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: #2d2d2d;
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 4rem;
   position: relative;
+  letter-spacing: -0.02em;
 
   &::after {
     content: '';
     position: absolute;
-    bottom: -0.5rem;
+    bottom: -1rem;
     left: 50%;
     transform: translateX(-50%);
-    width: 50px;
+    width: 60px;
     height: 2px;
-    background: #8b6f47;
+    background: linear-gradient(90deg, #8b6f47, #d4af37);
+    border-radius: 1px;
   }
 
   @media (max-width: $mobile) {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: 2.5rem;
   }
 }
 
@@ -138,6 +139,7 @@
   outline: none;
   transition: all 0.3s ease;
   box-sizing: border-box;
+  width: 100%;
   
   &::placeholder {
     color: #999;
