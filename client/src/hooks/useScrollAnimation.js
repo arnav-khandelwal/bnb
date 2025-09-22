@@ -68,7 +68,7 @@ export const useScrollAnimation = (animationType = 'fadeUp', options = {}) => {
         trigger: element,
         start: 'top 85%',
         end: 'bottom 15%',
-        toggleActions: 'play none none reverse',
+        toggleActions: mergedOptions.once ? 'play none none none' : 'play none none reverse',
         ...mergedOptions.scrollTrigger,
       },
     });
@@ -138,7 +138,7 @@ export const useStaggerAnimation = (animationType = 'fadeUp', options = {}) => {
       scrollTrigger: {
         trigger: container,
         start: 'top 85%',
-        toggleActions: 'play none none reverse',
+        toggleActions: mergedOptions.once ? 'play none none none' : 'play none none reverse',
         ...mergedOptions.scrollTrigger,
       },
     });

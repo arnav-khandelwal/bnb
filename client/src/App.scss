@@ -1,6 +1,55 @@
 @use './styles/variables' as *;
 
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  
+  // Responsive font scaling
+  @media (max-width: $mobile) {
+    font-size: 14px;
+  }
+  
+  @media (min-width: $desktop) {
+    font-size: 18px;
+  }
+}
+
 .min-h-screen {
   min-height: 100vh;
   background: $primary-beige;
+  overflow-x: hidden;
+}
+
+// Global responsive utilities
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  
+  @media (max-width: $mobile) {
+    padding: 0 0.75rem;
+  }
+  
+  @media (min-width: $desktop) {
+    padding: 0 2rem;
+  }
+}
+
+// Component spacing adjustments for mobile
+section {
+  padding: 2rem 0;
+  
+  @media (max-width: $mobile) {
+    padding: 1.5rem 0;
+  }
+  
+  @media (min-width: $desktop) {
+    padding: 4rem 0;
+  }
 }

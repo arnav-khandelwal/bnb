@@ -10,12 +10,12 @@ import './App.scss';
 const App = () => {
   return (
     <div className="min-h-screen">
-  <Navbar />
-  <Hero />
-  <div id="about"><About /></div>
-  <Rooms />
-  <div id="amenities"><Amenities /></div>
-  <div id="contact"><Contact /></div>
+      <Navbar />
+      <Hero />
+      <section id="about"><About /></section>
+      <section><Rooms /></section>
+      <section id="amenities"><Amenities /></section>
+      <section id="contact"><Contact /></section>
     </div>
   );
 };
